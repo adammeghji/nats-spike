@@ -18,3 +18,6 @@ Some advantages:
 2. `siege -d 0.1 -n 100 -c1 http://localhost:3000/` to issue an onslaught of HTTP requests
 3. HTTP requests will be accepted by the API, put on the NATS queue, and consumed by all backends (NodeJS + Ruby)
 
+## Architecture
+
+![Architecture](https://i.imgur.com/vKiZNVa.png "Architecture")
