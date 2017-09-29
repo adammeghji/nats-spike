@@ -1,0 +1,14 @@
+{
+  "name": "pub-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nats": "^0.7.20"
+  }
+}

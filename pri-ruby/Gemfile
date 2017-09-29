@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# gem "rails"
+
+# Added at 2017-09-28 00:49:36 -0400 by marms:
+gem "nats", "~> 0.8.2"

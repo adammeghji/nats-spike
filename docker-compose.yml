@@ -1,0 +1,35 @@
+version: '2'
+services:
+  gnatsd:
+    image: "apcera/gnatsd"
+    expose:
+     - 4222
+     - 6222
+     - 8222
+    ports:
+     - "4222:4222"
+     - "6222:6222"
+     - "8222:8222"
+    # command: "-DV" # debug mode
+  api:
+    build: 'pub-api/.'
+    ports:
+     - "3000:3000"
+    links:
+     - gnatsd
+  nodejs-client-1:
+    build: 'pri-nodejs/.'
+    links:
+     - gnatsd
+  ruby-client-1:
+    build: 'pri-ruby/.'
+    tty: true
+    command: "ruby server.rb 1"
+    links:
+     - gnatsd
+  ruby-client-2:
+    build: 'pri-ruby/.'
+    command: "ruby server.rb 2"
+    tty: true
+    links:
+     - gnatsd
