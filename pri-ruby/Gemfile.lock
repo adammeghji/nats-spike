@@ -1,15 +1,33 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    byebug (9.1.0)
+    coderay (1.1.2)
     eventmachine (1.2.5)
+    filewatcher (1.0.0)
+      trollop (~> 2.1, >= 2.1.2)
+    google-protobuf (3.4.1.1)
+    method_source (0.9.0)
     nats (0.8.2)
       eventmachine (~> 1.2, >= 1.2)
+    pry (0.11.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-byebug (3.5.0)
+      byebug (~> 9.1)
+      pry (~> 0.10)
+    rake (12.1.0)
+    trollop (2.1.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  filewatcher (~> 1.0)
+  google-protobuf (~> 3.4)
   nats (~> 0.8.2)
+  pry-byebug (~> 3.5)
+  rake (~> 12.1)
 
 BUNDLED WITH
    1.16.0.pre.2

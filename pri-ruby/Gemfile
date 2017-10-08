@@ -4,7 +4,11 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-# gem "rails"
-
-# Added at 2017-09-28 00:49:36 -0400 by marms:
 gem "nats", "~> 0.8.2"
+gem "google-protobuf", "~> 3.4"
+gem "rake", "~> 12.1"
+
+group :development do
+  gem "filewatcher", "~> 1.0"
+  gem "pry-byebug", "~> 3.5"
+end

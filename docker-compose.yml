@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   gnatsd:
     image: "apcera/gnatsd"
@@ -11,25 +11,40 @@ services:
      - "6222:6222"
      - "8222:8222"
     # command: "-DV" # debug mode
+  proto:
+    build: 'proto/.'
+    volumes:
+      - ./proto:/opt
   api:
     build: 'pub-api/.'
+    expose:
+     - 3000
     ports:
      - "3000:3000"
     links:
      - gnatsd
-  nodejs-client-1:
+    volumes:
+     - ./pub-api:/code
+     - ./proto/:/code/proto
+  nodejs-consumer:
     build: 'pri-nodejs/.'
     links:
      - gnatsd
-  ruby-client-1:
+    environment:
+      NATS_URL: "nats://ruser:T0pS3cr3t@gnatsd:4222"
+    volumes:
+     - ./pri-nodejs:/code
+     - ./proto/:/code/proto
+  ruby-consumer:
     build: 'pri-ruby/.'
     tty: true
-    command: "ruby server.rb 1"
     links:
      - gnatsd
-  ruby-client-2:
-    build: 'pri-ruby/.'
-    command: "ruby server.rb 2"
-    tty: true
-    links:
-     - gnatsd
+    environment:
+      NATS_URL: "nats://ruser:T0pS3cr3t@gnatsd:4222"
+    volumes:
+     - ./pri-ruby:/code
+     - ./proto/:/code/proto
+
+volumes:
+  proto:

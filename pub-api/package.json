@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.15.5",
-    "nats": "^0.7.20"
+    "nats": "^0.7.20",
+    "protobufjs": "^6.8.0"
   }
 }
