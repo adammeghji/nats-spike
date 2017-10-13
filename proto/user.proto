@@ -10,7 +10,7 @@ message User {
 }
 
 message CreateUserRequest {
-  User user = 2;
+  User user = 1;
 }
 
 message CreateUserResponse {

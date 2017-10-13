@@ -5,13 +5,13 @@ require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "types.User" do
-    optional :first_name, :string, 1
-    optional :last_name, :string, 2
-    optional :email, :string, 3
+    optional :id, :string, 1
+    optional :first_name, :string, 2
+    optional :last_name, :string, 3
+    optional :email, :string, 4
   end
   add_message "types.CreateUserRequest" do
-    optional :id, :int32, 1
-    optional :user, :message, 2, "types.User"
+    optional :user, :message, 1, "types.User"
   end
   add_message "types.CreateUserResponse" do
     optional :id, :int32, 1
